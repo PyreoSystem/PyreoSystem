@@ -1,5 +1,23 @@
-
-
-
-
-{ "name": "global-hub", "private": true, "scripts": { "dev": "next dev -p 3000", "build": "next build", "start": "next start -p 3000" }, "dependencies": { "next": "14.2.5", "react": "18.2.0", "react-dom": "18.2.0" } }
+{
+  "name": "pyreo-system",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "next": "14.2.5",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "@supabase/supabase-js": "^2.45.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.3",
+    "@types/react": "^18.3.5",
+    "@types/node": "^20.14.12",
+    "eslint": "^8.57.0",
+    "eslint-config-next": "14.2.5"
+  }
+}
