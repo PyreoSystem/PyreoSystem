@@ -1,7 +1,6 @@
 import { GetServerSideProps } from "next";
 import Head from "next/head";
-import { supabase } from "@/lib/supabaseClient";
-
+import { supabase } from "../../../lib/supabaseClient";
 type Biz = {
   id: string;
   name: string;
