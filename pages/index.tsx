@@ -1,8 +1,9 @@
 export default function Home() {
   return (
-    <div style={{ fontFamily: "system-ui, sans-serif", padding: 24 }}>
+    <main style={{ maxWidth: 900, margin: "24px auto", padding: "0 16px" }}>
       <h1>Global Hub</h1>
-      <p>It works! Your Next.js app is live on Vercel.</p>
-    </div>
+      <p>Welcome! Try the Cancún restaurants route:</p>
+      <p><a href="/es/cancun/restaurantes">/es/cancun/restaurantes</a></p>
+    </main>
   );
 }
