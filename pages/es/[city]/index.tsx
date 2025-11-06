@@ -71,28 +71,28 @@ if (loading)
         <Skeleton width={360} height={18} />
       </div>
       <div
-        style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))',
-          gap: '1rem',
-        }}
-      >
-        {Array.from({ length: 8 }).map((_, i) => (
-          <div
-            key={i}
-            style={{
-              border: '1px solid #e5e7eb',
-              borderRadius: 8,
-              padding: '1rem',
-              background: 'white',
-            }}
-          >
-            <div style={{ marginBottom: '0.5rem' }}>
-              <Skeleton width="70%" height={18} />
-            </div>
-            <Skeleton width="50%" height={14} />
+      style={{
+        display: 'grid',
+        gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))',
+        gap: '1rem',
+      }}
+    >
+      {Array.from({ length: 8 }).map((_, i) => (
+        <div
+          key={i}
+          style={{
+            border: '1px solid #e5e7eb',
+            borderRadius: 8,
+            padding: '1rem',
+            background: 'white',
+          }}
+        >
+          <div style={{ marginBottom: '0.5rem' }}>
+            <Skeleton width="70%" height={18} />
           </div>
-        ))}
-      </div>
+          <Skeleton width="50%" height={14} />
+        </div>
+      ))}
     </div>
-  );
+  </div>
+);
