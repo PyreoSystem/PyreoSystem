@@ -85,84 +85,145 @@ export default function CategoryPage() {
       ? `${categoryData.name_es} en ${cityData.name_es} | Global Hub`
       : 'Global Hub';
 
-  return (
-    <>
-      <Head>
-        <title>{title}</title>
-        {cityData && categoryData && (
-          <meta
-            name="description"
-            content={`Explora ${categoryData.name_es} en ${cityData.name_es}. Ofertas y promociones de negocios locales.`}
-          />
-        )}
-      </Head>
+return (
+  <>
+    <Head>
+      <title>{title}</title>
+      {cityData && categoryData && (
+        <meta
+          name="description"
+          content={`Explora ${categoryData.name_es} en ${cityData.name_es}. Ofertas y promociones de negocios locales.`}
+        />
+      )}
+    </Head>
 
-      <div style={{ padding: '2rem', maxWidth: 1200, margin: '0 auto' }}>
-        {loading && <div>Cargando...</div>}
-        {error && <div style={{ color: 'crimson' }}>{error}</div>}
+    <div style={{ padding: '2rem', maxWidth: 1200, margin: '0 auto' }}>
+      {loading && <div>Cargando...</div>}
+      {error && <div style={{ color: 'crimson' }}>{error}</div>}
 
-        {!loading && !error && cityData && categoryData && (
-          <>
-            <h1 style={{ fontSize: '2rem', marginBottom: '0.25rem' }}>
-              {categoryData.name_es} en {cityData.name_es}
-            </h1>
-            <p style={{ color: '#666', marginBottom: '1.5rem' }}>
-              Negocios aprobados en esta categoría
-            </p>
+      {!loading && !error && cityData && categoryData && (
+        <>
+          <h1 style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>
+            {categoryData.name_es} en {cityData.name_es}
+          </h1>
+          <p style={{ color: '#666', marginBottom: '1.5rem' }}>
+            Negocios aprobados en esta categoría
+          </p>
 
-            {businesses.length === 0 ? (
-              <div>No hay negocios todavía.</div>
-            ) : (
-              <div
-                style={{
-                  display: 'grid',
-                  gridTemplateColumns:
-                    'repeat(auto-fill, minmax(260px, 1fr))',
-                  gap: '1rem',
-                }}
-              >
-                {businesses.map((b) => (
-                  <a
-                    key={b.id}
-                    href={`/es/${cityData.slug}/biz/${b.slug}`}
+          {businesses.length === 0 ? (
+            <div
+              style={{
+                border: '1px solid #e5e7eb',
+                borderRadius: 8,
+                padding: '1rem',
+                background: 'white',
+                color: '#6b7280',
+              }}
+            >
+              No hay negocios todavía.
+            </div>
+          ) : (
+            <div
+              style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
+                gap: '1rem',
+              }}
+            >
+              {businesses.map((b) => (
+                <div
+                  key={b.id}
+                  style={{
+                    border: '1px solid #e5e7eb',
+                    borderRadius: 10,
+                    padding: '1rem',
+                    background: 'white',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: '0.75rem',
+                  }}
+                >
+                  {/* Image/Logo placeholder */}
+                  <div
                     style={{
-                      display: 'block',
-                      border: '1px solid #e5e7eb',
+                      height: 140,
+                      background: '#f8fafc',
                       borderRadius: 8,
-                      padding: '1rem',
-                      textDecoration: 'none',
-                      color: '#111827',
-                      background: 'white',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      color: '#94a3b8',
+                      fontSize: '0.9rem',
                     }}
                   >
-                    <div
+                    {b.logo_url ? 'Logo' : 'Sin imagen'}
+                  </div>
+
+                  {/* Name and description */}
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+                    <a
+                      href={`/es/${cityData.slug}/biz/${b.slug}`}
                       style={{
-                        height: 120,
-                        background: '#f8fafc',
-                        borderRadius: 6,
-                        marginBottom: '0.75rem',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        color: '#94a3b8',
-                        fontSize: '0.9rem',
+                        fontWeight: 700,
+                        fontSize: '1.05rem',
+                        color: '#111827',
+                        textDecoration: 'none',
                       }}
                     >
-                      {b.logo_url ? 'Logo' : 'Sin imagen'}
-                    </div>
-                    <div style={{ fontWeight: 600 }}>{b.name}</div>
+                      {b.name}
+                    </a>
                     {b.description && (
-                      <div style={{ color: '#6b7280', fontSize: '0.9rem' }}>
+                      <div style={{ color: '#6b7280', fontSize: '0.95rem', lineHeight: 1.4 }}>
                         {b.description}
                       </div>
                     )}
-                  </a>
-                ))}
-              </div>
-            )}
-          </>
-        )}
-      </div>
-    </>
-  );
-  }
+                  </div>
+
+                  {/* Actions */}
+                  <div
+                    style={{
+                      display: 'flex',
+                      gap: '0.5rem',
+                      marginTop: 'auto',
+                      flexWrap: 'wrap',
+                    }}
+                  >
+                    <a
+                      href={`/es/${cityData.slug}/biz/${b.slug}`}
+                      style={{
+                        padding: '0.5rem 0.75rem',
+                        borderRadius: 8,
+                        background: '#111827',
+                        color: 'white',
+                        textDecoration: 'none',
+                        fontWeight: 600,
+                        fontSize: '0.95rem',
+                      }}
+                    >
+                      Ver negocio
+                    </a>
+                    <a
+                      href={`/es/${cityData.slug}`}
+                      style={{
+                        padding: '0.5rem 0.75rem',
+                        borderRadius: 8,
+                        border: '1px solid #e5e7eb',
+                        color: '#111827',
+                        textDecoration: 'none',
+                        fontWeight: 600,
+                        fontSize: '0.95rem',
+                        background: 'white',
+                      }}
+                    >
+                      Volver a categorías
+                    </a>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+        </>
+      )}
+    </div>
+  </>
+);
