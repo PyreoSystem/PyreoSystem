@@ -2,7 +2,7 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { supabase } from '../../../lib/supabaseClient';
-import Skeleton, { ShimmerStyle } from '../../../components/Skeleton';
+import Skeleton, { ShimmerStyle } from '../../components/Skeleton';
 
 type City = { id: string; name_es: string; slug: string };
 type Category = { id: string; name_es: string; slug: string };
