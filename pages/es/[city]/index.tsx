@@ -1,3 +1,4 @@
+import Skeleton, { ShimmerStyle } from '../../../components/Skeleton';
 // trigger deploy
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
@@ -59,27 +60,16 @@ export default function CityPage() {
     }
   }
 
-  if (loading)
-    return <div style={{ padding: '2rem' }}>Cargando...</div>;
-  if (error)
-    return (
-      <div style={{ padding: '2rem', color: 'crimson' }}>
-        {error}
-      </div>
-    );
-  if (!cityData)
-    return <div style={{ padding: '2rem' }}>Ciudad no encontrada</div>;
-
+if (loading)
   return (
     <div style={{ padding: '2rem', maxWidth: 1200, margin: '0 auto' }}>
-      <h1 style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>
-        {cityData.name_es}
-      </h1>
-
-      <p style={{ color: '#666', marginBottom: '1.5rem' }}>
-        Explora negocios locales por categoría
-      </p>
-
+      <ShimmerStyle />
+      <div style={{ marginBottom: '1rem' }}>
+        <Skeleton width={240} height={32} />
+      </div>
+      <div style={{ marginBottom: '1.5rem' }}>
+        <Skeleton width={360} height={18} />
+      </div>
       <div
         style={{
           display: 'grid',
@@ -87,29 +77,22 @@ export default function CityPage() {
           gap: '1rem',
         }}
       >
-        {categories.map((cat) => (
-          <a
-            key={cat.id}
-            href={`/es/${cityData.slug}/${cat.slug}`}
+        {Array.from({ length: 8 }).map((_, i) => (
+          <div
+            key={i}
             style={{
-              display: 'block',
               border: '1px solid #e5e7eb',
               borderRadius: 8,
               padding: '1rem',
-              textDecoration: 'none',
-              color: '#111827',
               background: 'white',
             }}
           >
-            <div style={{ fontWeight: 600, marginBottom: '0.25rem' }}>
-              {cat.name_es}
+            <div style={{ marginBottom: '0.5rem' }}>
+              <Skeleton width="70%" height={18} />
             </div>
-            <div style={{ fontSize: '0.9rem', color: '#6b7280' }}>
-              Ver negocios
-            </div>
-          </a>
+            <Skeleton width="50%" height={14} />
+          </div>
         ))}
       </div>
     </div>
   );
-}
