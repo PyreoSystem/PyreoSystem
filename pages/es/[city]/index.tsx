@@ -79,3 +79,6 @@ export default function CityPage() {
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))',
           gap: '1rem
+</div>
+  </div>
+);
