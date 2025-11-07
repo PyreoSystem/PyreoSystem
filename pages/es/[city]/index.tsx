@@ -55,6 +55,11 @@ export default function CityPage() {
   }
 
   const title = cityData ? `${cityData.name_es} | Global Hub` : 'Global Hub';
+  const baseUrl = 'https://pyreo-system.vercel.app';
+const canonicalUrl = cityData ? `${baseUrl}/es/${cityData.slug}` : baseUrl;
+const metaDescription = cityData
+  ? `Explora categorías y negocios en ${cityData.name_es}. Ofertas y promociones de negocios locales.`
+  : 'Explora negocios y categorías en Global Hub.';
 
   if (loading)
     return (
