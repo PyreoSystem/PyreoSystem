@@ -1,8 +1,7 @@
-import Skeleton, { ShimmerStyle } from '../../../components/Skeleton';
-// trigger deploy
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import Skeleton, { ShimmerStyle } from '../../components/Skeleton';
+import { supabase } from '../../../lib/supabaseClient';
+import Skeleton, { ShimmerStyle } from '../../components/Skeleton'; 
 
 type City = {
   id: string;
