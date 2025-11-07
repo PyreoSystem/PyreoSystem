@@ -81,6 +81,16 @@ export default function CategoryPage() {
     cityData && categoryData
       ? `${categoryData.name_es} en ${cityData.name_es} | Global Hub`
       : 'Global Hub';
+  const baseUrl = 'https://pyreo-system.vercel.app';
+const canonicalUrl =
+  cityData && categoryData
+    ? `${baseUrl}/es/${cityData.slug}/${categoryData.slug}`
+    : baseUrl;
+
+const metaDescription =
+  cityData && categoryData
+    ? `Explora ${categoryData.name_es} en ${cityData.name_es}. Ofertas y promociones de negocios locales.`
+    : 'Explora negocios y categorías en Global Hub.';
 
   if (loading)
     return (
@@ -106,12 +116,22 @@ export default function CategoryPage() {
   return (
     <>
       <Head>
-        <title>{title}</title>
-        <meta
-          name="description"
-          content={`Explora ${categoryData.name_es} en ${cityData.name_es}. Ofertas y promociones de negocios locales.`}
-        />
-      </Head>
+  <title>{title}</title>
+  <meta name="description" content={metaDescription} />
+  <link rel="canonical" href={canonicalUrl} />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={metaDescription} />
+  <meta property="og:url" content={canonicalUrl} />
+  <meta property="og:image" content={`${baseUrl}/og-default.jpg`} />
+  <meta property="og:locale" content="es_MX" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={metaDescription} />
+  <meta name="twitter:image" content={`${baseUrl}/og-default.jpg`} />
+</Head>
 
       <div style={{ padding: '2rem', maxWidth: 1200, margin: '0 auto' }}>
         <h1 style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>
