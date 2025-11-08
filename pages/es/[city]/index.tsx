@@ -94,6 +94,7 @@ const metaDescription = cityData
   <meta property="og:description" content={metaDescription} />
   <meta property="og:url" content={canonicalUrl} />
   <meta property="og:image" content={`${baseUrl}/og-default.jpg`} />
+  <meta property="og:image" content="https://pyreo-system.vercel.app/og-default.jpg" /> 
   <meta property="og:locale" content="es_MX" />
 
   <meta name="twitter:card" content="summary_large_image" />
