@@ -1,12 +1,13 @@
 import Head from 'next/head';
+import { GetServerSideProps } from 'next';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import { supabase } from '../../../lib/supabaseClient';
+import { supabase } from '../../../lib/supabaseClient'; 
 
 type City = { id: string; name_es: string; slug: string };
 type Category = { id: string; name_es: string; slug: string };
 
-export default function CityPage() {
+export default function CityPage({ cityData, baseUrl }: any) { 
   const router = useRouter();
   const { city } = router.query;
 
@@ -161,3 +162,27 @@ const metaDescription = cityData
     </>
   );
 }
+// --- Server‑Side Rendering for Meta Tags (so Facebook can read them) ---
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const { city } = context.params!; // get the city slug from the URL
+
+  // Fetch city data from Supabase on the server
+  const { data: cityData, error } = await supabase
+    .from('cities')
+    .select('*')
+    .eq('slug', city)
+    .single();
+
+  const baseUrl = 'https://pyreo-system.vercel.app';
+
+  if (error || !cityData) {
+    return { notFound: true }; // show 404 if not found
+  }
+
+  return {
+    props: {
+      cityData,
+      baseUrl,
+    },
+  };
+};
