@@ -57,7 +57,7 @@ export default function CityPage({ cityData: initialCityData, base }: any) {
 
   const title = cityData ? `${cityData.name_es} | Global Hub` : 'Global Hub';
   const baseUrl = 'https://pyreo-system.vercel.app';
-const canonicalUrl = cityData ? `${baseUrl}/es/${cityData.slug}` : baseUrl;
+const canonicalUrl = cityData ? `${staticBaseUrl}/es/${cityData.slug}` : baseUrl;
 const metaDescription = cityData
   ? `Explora categorías y negocios en ${cityData.name_es}. Ofertas y promociones de negocios locales.`
   : 'Explora negocios y categorías en Global Hub.';
@@ -94,14 +94,14 @@ const metaDescription = cityData
   <meta property="og:title" content={title} />
   <meta property="og:description" content={metaDescription} />
   <meta property="og:url" content={canonicalUrl} />
-  <meta property="og:image" content={`${staticbaseUrl}/og-default.jpg`} />
+  <meta property="og:image" content={`${staticBaseUrl}/og-default.jpg`} />
   <meta property="og:image" content="https://pyreo-system.vercel.app/og-default.jpg" /> 
   <meta property="og:locale" content="es_MX" />
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content={title} />
   <meta name="twitter:description" content={metaDescription} />
-  <meta name="twitter:image" content={`${staticbaseUrl}/og-default.jpg`} />
+  <meta name="twitter:image" content={`${staticBaseUrl}/og-default.jpg`} />
 </Head> 
 
       <div style={{ padding: '2rem', maxWidth: 1200, margin: '0 auto' }}>
