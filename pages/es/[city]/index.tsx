@@ -7,7 +7,8 @@ import { supabase } from '../../../lib/supabaseClient';
 type City = { id: string; name_es: string; slug: string };
 type Category = { id: string; name_es: string; slug: string };
 
-export default function CityPage({ cityData: initialCityData, baseUrl }: any) {
+export default function CityPage({ cityData: initialCityData, base }: any) {
+  const baseUrl = base; 
   const router = useRouter();
   const { city } = router.query;
 
