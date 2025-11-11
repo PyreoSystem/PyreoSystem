@@ -8,7 +8,7 @@ type City = { id: string; name_es: string; slug: string };
 type Category = { id: string; name_es: string; slug: string };
 
 export default function CityPage({ cityData: initialCityData, base }: any) {
-  const baseUrl = base; 
+  const staticBaseUrl = base; 
   const router = useRouter();
   const { city } = router.query;
 
@@ -92,14 +92,14 @@ const metaDescription = cityData
   <meta property="og:title" content={title} />
   <meta property="og:description" content={metaDescription} />
   <meta property="og:url" content={canonicalUrl} />
-  <meta property="og:image" content={`${baseUrl}/og-default.jpg`} />
+  <meta property="og:image" content={`${staticbaseUrl}/og-default.jpg`} />
   <meta property="og:image" content="https://pyreo-system.vercel.app/og-default.jpg" /> 
   <meta property="og:locale" content="es_MX" />
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content={title} />
   <meta name="twitter:description" content={metaDescription} />
-  <meta name="twitter:image" content={`${baseUrl}/og-default.jpg`} />
+  <meta name="twitter:image" content={`${staticbaseUrl}/og-default.jpg`} />
 </Head> 
 
       <div style={{ padding: '2rem', maxWidth: 1200, margin: '0 auto' }}>
