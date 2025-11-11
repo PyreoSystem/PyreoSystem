@@ -185,3 +185,4 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     base: baseUrl,
   },
 };
+}
