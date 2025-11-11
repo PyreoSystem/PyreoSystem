@@ -7,14 +7,11 @@ import { supabase } from '../../../lib/supabaseClient';
 type City = { id: string; name_es: string; slug: string };
 type Category = { id: string; name_es: string; slug: string };
 
-export default function CityPage({ cityData, baseUrl }: any) { 
+export default function CityPage({ cityData: initialCityData, baseUrl }: any) {
   const router = useRouter();
   const { city } = router.query;
 
-  const [cityData, setCityData] = useState<City | null>(null);
-  const [categories, setCategories] = useState<Category[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  const [cityData, setCityData] = useState<City | null>(initialCityData);
 
   useEffect(() => {
     if (!city || typeof city !== 'string') return;
