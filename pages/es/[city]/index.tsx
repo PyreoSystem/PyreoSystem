@@ -164,25 +164,26 @@ const metaDescription = cityData
 }
 // --- Server‑Side Rendering for Meta Tags (so Facebook can read them) ---
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const { city } = context.params!; // get the city slug from the URL
+  // ✅ get the "city" part of the URL (e.g. /es/cancun)
+  const { city } = context.params as { city: string };
 
-  // Fetch city data from Supabase on the server
+  // ✅ fetch that city's data from Supabase
   const { data: cityData, error } = await supabase
     .from('cities')
     .select('*')
-    .eq('slug', city)
+    .eq('slug', city) // use the variable "city" here
     .single();
 
   const baseUrl = 'https://pyreo-system.vercel.app';
 
   if (error || !cityData) {
-    return { notFound: true }; // show 404 if not found
+    return { notFound: true }; // show a 404 if city not found
   }
 
   return {
-  props: {
-    cityData,
-    base: baseUrl,
-  },
+    props: {
+      cityData,
+      base: baseUrl,
+    },
+  };
 };
-}
