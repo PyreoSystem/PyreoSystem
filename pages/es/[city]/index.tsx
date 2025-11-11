@@ -15,6 +15,7 @@ export default function CityPage({ cityData: initialCityData, base }: any) {
   const [cityData, setCityData] = useState<City | null>(initialCityData);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [categories, setCategories] = useState<Category[]>([]);
 
   useEffect(() => {
     if (!city || typeof city !== 'string') return;
