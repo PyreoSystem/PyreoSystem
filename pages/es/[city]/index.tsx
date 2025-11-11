@@ -8,11 +8,13 @@ type City = { id: string; name_es: string; slug: string };
 type Category = { id: string; name_es: string; slug: string };
 
 export default function CityPage({ cityData: initialCityData, base }: any) {
-  const staticBaseUrl = base; 
+  const staticBaseUrl = base;
   const router = useRouter();
   const { city } = router.query;
 
   const [cityData, setCityData] = useState<City | null>(initialCityData);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     if (!city || typeof city !== 'string') return;
@@ -23,7 +25,6 @@ export default function CityPage({ cityData: initialCityData, base }: any) {
     try {
       setLoading(true);
       setError(null);
-
       const { data: cityInfo, error: cityErr } = await supabase
         .from('city')
         .select('id, name_es, slug')
