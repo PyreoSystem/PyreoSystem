@@ -178,9 +178,8 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   }
 
   return {
-    props: {
-      cityData,
-      baseUrl,
-    },
-  };
+  props: {
+    cityData,
+    base: baseUrl,
+  },
 };
