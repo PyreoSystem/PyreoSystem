@@ -169,10 +169,10 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
   // ✅ fetch that city's data from Supabase
   const { data: cityData, error } = await supabase
-    .from('cities')
-    .select('*')
-    .eq('slug', city) // use the variable "city" here
-    .single();
+  .from('city')
+  .select('*')
+  .eq('slug', city)
+  .single(); 
 
   const baseUrl = 'https://pyreo-system.vercel.app';
 
