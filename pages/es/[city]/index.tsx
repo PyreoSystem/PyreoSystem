@@ -85,24 +85,23 @@ const metaDescription = cityData
 
   return (
     <>
-      <Head>
-  <title>{title}</title>
-  <meta name="description" content={metaDescription} />
-  <link rel="canonical" href={canonicalUrl} />
+   <Head>
+  <title>{`Global Hub – ${cityData?.name_es || "Descubre negocios locales"}`}</title>
+  <meta name="description" content={`Explora los mejores negocios y promociones en ${cityData?.name_es || "tu ciudad"}.`} />
+  <link rel="canonical" href={`https://pyreo-system.vercel.app/es/${cityData?.slug || "cancun"}`} />
 
   <meta property="og:type" content="website" />
-  <meta property="og:title" content={title} />
-  <meta property="og:description" content={metaDescription} />
-  <meta property="og:url" content={canonicalUrl} />
-  <meta property="og:image" content={`${staticBaseUrl}/og-default.jpg`} />
-  <meta property="og:image" content="https://pyreo-system.vercel.app/og-default.jpg" /> 
+  <meta property="og:url" content={`https://pyreo-system.vercel.app/es/${cityData?.slug || "cancun"}`} />
+  <meta property="og:title" content={`Global Hub – ${cityData?.name_es || "Negocios locales"}`} />
+  <meta property="og:description" content={`Explora los mejores negocios y promociones en ${cityData?.name_es || "tu ciudad"}.`} />
+  <meta property="og:image" content="https://pyreo-system.vercel.app/og-default.jpg" />
   <meta property="og:locale" content="es_MX" />
-
+  
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content={title} />
-  <meta name="twitter:description" content={metaDescription} />
-  <meta name="twitter:image" content={`${staticBaseUrl}/og-default.jpg`} />
-</Head> 
+  <meta name="twitter:title" content={`Global Hub – ${cityData?.name_es || "Negocios locales"}`} />
+  <meta name="twitter:description" content={`Explora los mejores negocios y promociones en ${cityData?.name_es || "tu ciudad"}.`} />
+  <meta name="twitter:image" content="https://pyreo-system.vercel.app/og-default.jpg" />
+</Head>
 
       <div style={{ padding: '2rem', maxWidth: 1200, margin: '0 auto' }}>
         <h1 style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>
