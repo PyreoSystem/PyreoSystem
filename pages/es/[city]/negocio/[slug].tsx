@@ -2,7 +2,7 @@ import { GetServerSideProps } from "next";
 import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
-import { supabase } from "../../../../../lib/supabaseClient";
+import { supabase } from "../../../../lib/supabaseClient";
 
 type City = { id: string; slug: string; name_es: string };
 type Category = { id: string; slug: string; name_es: string };
