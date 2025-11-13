@@ -85,7 +85,6 @@ const metaDescription = cityData
 
   return (
     <>
-      import Head from "next/head";
 
 <Head>
   <title>{`Global Hub - ${cityData?.name_es || "Descubre negocios locales"}`}</title>
