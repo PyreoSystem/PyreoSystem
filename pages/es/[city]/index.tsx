@@ -86,7 +86,6 @@ const metaDescription = cityData
   return (
     <>
       <Head>
-  {/* Basic SEO */}
   <title>{`Global Hub - ${cityData?.name_es || "Descubre negocios locales"}`}</title>
   <meta
     name="description"
@@ -97,42 +96,24 @@ const metaDescription = cityData
     href={`https://pyreo-system.vercel.app/es/${cityData?.slug || "cancun"}`}
   />
 
-  {/* Open Graph (Facebook) */}
   <meta property="og:type" content="website" />
-  <meta
-    property="og:url"
-    content={`https://pyreo-system.vercel.app/es/${cityData?.slug || "cancun"}`}
-  />
-  <meta
-    property="og:title"
-    content={`Global Hub - ${cityData?.name_es || "Negocios locales"}`}
-  />
-  <meta
-    property="og:description"
-    content={`Explora los mejores negocios y promociones en ${cityData?.name_es || "tu ciudad"}.`}
-  />
+  <meta property="og:url" content={`https://pyreo-system.vercel.app/es/${cityData?.slug || "cancun"}`} />
+  <meta property="og:title" content={`Global Hub - ${cityData?.name_es || "Negocios locales"}`} />
+  <meta property="og:description" content={`Explora los mejores negocios y promociones en ${cityData?.name_es || "tu ciudad"}.`} />
   <meta property="og:image" content="https://pyreo-system.vercel.app/og-default.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:type" content="image/jpeg" />
   <meta property="og:locale" content="es_MX" />
 
-  {/* Twitter */}
   <meta name="twitter:card" content="summary_large_image" />
-  <meta
-    name="twitter:title"
-    content={`Global Hub - ${cityData?.name_es || "Negocios locales"}`}
-  />
-  <meta
-    name="twitter:description"
-    content={`Explora los mejores negocios y promociones en ${cityData?.name_es || "tu ciudad"}.`}
-  />
+  <meta name="twitter:title" content={`Global Hub - ${cityData?.name_es || "Negocios locales"}`} />
+  <meta name="twitter:description" content={`Explora los mejores negocios y promociones en ${cityData?.name_es || "tu ciudad"}.`} />
   <meta name="twitter:image" content="https://pyreo-system.vercel.app/og-default.jpg" />
 
-  {/* Optional: add your Facebook App ID if you have one */}
+  {/* Optional if you have a Meta app: */}
   {/* <meta property="fb:app_id" content="YOUR_APP_ID" /> */}
 </Head>
-   
       <div style={{ padding: '2rem', maxWidth: 1200, margin: '0 auto' }}>
         <h1 style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>
         {cityData.name_es}
